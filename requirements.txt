@@ -1,0 +1,8 @@
+APScheduler==3.10.4
+Flask==3.0.3
+requests==2.32.3
+requests-oauthlib==2.0.0
+pytz==2025.2
+tzdata==2025.2
+tzlocal==5.3.1
+filelock==3.16.0

@@ -38,4 +38,5 @@ class OrderRotator:
                 }]
             }
         }
+        self.log.debug('Built PreviewOrderRequest: %s', req)
         return req

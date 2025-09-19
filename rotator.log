@@ -1,0 +1,251 @@
+2025-09-18 19:10:24,970 [INFO] Logger initialized.
+2025-09-18 19:10:25,013 [DEBUG] /etc/localtime found
+2025-09-18 19:10:25,017 [DEBUG] 1 found:
+ {'/etc/localtime is a symlink to': 'America/Phoenix'}
+2025-09-18 19:10:25,047 [INFO] Scheduler started
+2025-09-18 19:10:25,048 [DEBUG] Looking for jobs to run
+2025-09-18 19:10:25,049 [INFO] Added job "GuiApp._apply_schedule.<locals>.<lambda>" to job store "default"
+2025-09-18 19:10:26,103 [INFO] Added job "GuiApp._apply_schedule.<locals>.<lambda>" to job store "default"
+2025-09-18 19:10:26,107 [INFO] Added job "GuiApp._apply_schedule.<locals>.<lambda>" to job store "default"
+2025-09-18 19:10:26,110 [INFO] Scheduler updated. GTCE: 04:01:00 & 16:00:00; EXTGTC: 19:59:00
+2025-09-18 19:10:34,169 [INFO] Requesting token at https://api.etrade.com/oauth/request_token
+2025-09-18 19:10:34,171 [DEBUG] Fetching token from https://api.etrade.com/oauth/request_token using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=None, resource_owner_secret=None, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=oob, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 19:10:34,173 [DEBUG] Signing request <PreparedRequest [POST]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=None, resource_owner_secret=None, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=oob, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 19:10:34,174 [DEBUG] Including body in call to sign: False
+2025-09-18 19:10:34,175 [DEBUG] Collected params: [('oauth_nonce', '9726933415742540081758247834'), ('oauth_timestamp', '1758247834'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_callback', 'oob')]
+2025-09-18 19:10:34,176 [DEBUG] Normalized params: oauth_callback=oob&oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=9726933415742540081758247834&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758247834&oauth_version=1.0
+2025-09-18 19:10:34,177 [DEBUG] Normalized URI: https://api.etrade.com/oauth/request_token
+2025-09-18 19:10:34,178 [DEBUG] Signing: signature base string: POST&https%3A%2F%2Fapi.etrade.com%2Foauth%2Frequest_token&oauth_callback%3Doob%26oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D9726933415742540081758247834%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758247834%26oauth_version%3D1.0
+2025-09-18 19:10:34,179 [DEBUG] Signature: pclyCoXd41kaIELG9zI5F83seFQ=
+2025-09-18 19:10:34,180 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 19:10:34,181 [DEBUG] Updated url: https://api.etrade.com/oauth/request_token
+2025-09-18 19:10:34,181 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'*/*', b'Connection': b'keep-alive', b'Content-Length': b'0', b'Authorization': b'OAuth oauth_nonce="9726933415742540081758247834", oauth_timestamp="1758247834", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_callback="oob", oauth_signature="pclyCoXd41kaIELG9zI5F83seFQ%3D"'}
+2025-09-18 19:10:34,182 [DEBUG] Updated body: None
+2025-09-18 19:10:34,187 [DEBUG] Starting new HTTPS connection (1): api.etrade.com:443
+2025-09-18 19:10:34,443 [DEBUG] https://api.etrade.com:443 "POST /oauth/request_token HTTP/1.1" 200 None
+2025-09-18 19:10:34,447 [DEBUG] Decoding token from response "oauth_token=lkiUQ9BpuktWfd2WlZrtUJayVbK8479TNsR3eRc76Ec%3D&oauth_token_secret=pb2Jtpf5P%2BD1Orqe4RrAMKNARzaZ4reqNyZWmTJJO5g%3D&oauth_callback_confirmed=true"
+2025-09-18 19:10:34,448 [DEBUG] Obtained token {'oauth_token': 'lkiUQ9BpuktWfd2WlZrtUJayVbK8479TNsR3eRc76Ec=', 'oauth_token_secret': 'pb2Jtpf5P+D1Orqe4RrAMKNARzaZ4reqNyZWmTJJO5g=', 'oauth_callback_confirmed': 'true'}
+2025-09-18 19:10:34,449 [DEBUG] Updating internal client attributes from token data.
+2025-09-18 19:10:34,450 [DEBUG] Resetting callback_uri and realm (not needed in next phase).
+2025-09-18 19:10:55,828 [INFO] Exchanging verifier for access token at https://api.etrade.com/oauth/access_token
+2025-09-18 19:10:55,832 [DEBUG] Fetching token from https://api.etrade.com/oauth/access_token using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=lkiUQ9BpuktWfd2WlZrtUJayVbK8479TNsR3eRc76Ec=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=X6AVU, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 19:10:55,834 [DEBUG] Signing request <PreparedRequest [POST]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=lkiUQ9BpuktWfd2WlZrtUJayVbK8479TNsR3eRc76Ec=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=X6AVU, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 19:10:55,835 [DEBUG] Including body in call to sign: False
+2025-09-18 19:10:55,836 [DEBUG] Collected params: [('oauth_nonce', '175779259724404295741758247855'), ('oauth_timestamp', '1758247855'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_token', 'lkiUQ9BpuktWfd2WlZrtUJayVbK8479TNsR3eRc76Ec='), ('oauth_verifier', 'X6AVU')]
+2025-09-18 19:10:55,837 [DEBUG] Normalized params: oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=175779259724404295741758247855&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758247855&oauth_token=lkiUQ9BpuktWfd2WlZrtUJayVbK8479TNsR3eRc76Ec%3D&oauth_verifier=X6AVU&oauth_version=1.0
+2025-09-18 19:10:55,838 [DEBUG] Normalized URI: https://api.etrade.com/oauth/access_token
+2025-09-18 19:10:55,838 [DEBUG] Signing: signature base string: POST&https%3A%2F%2Fapi.etrade.com%2Foauth%2Faccess_token&oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D175779259724404295741758247855%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758247855%26oauth_token%3DlkiUQ9BpuktWfd2WlZrtUJayVbK8479TNsR3eRc76Ec%253D%26oauth_verifier%3DX6AVU%26oauth_version%3D1.0
+2025-09-18 19:10:55,839 [DEBUG] Signature: CTvn2UVCCBupZPTX90QKh5gN8II=
+2025-09-18 19:10:55,840 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 19:10:55,841 [DEBUG] Updated url: https://api.etrade.com/oauth/access_token
+2025-09-18 19:10:55,842 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'*/*', b'Connection': b'keep-alive', b'Content-Length': b'0', b'Authorization': b'OAuth oauth_nonce="175779259724404295741758247855", oauth_timestamp="1758247855", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_token="lkiUQ9BpuktWfd2WlZrtUJayVbK8479TNsR3eRc76Ec%3D", oauth_verifier="X6AVU", oauth_signature="CTvn2UVCCBupZPTX90QKh5gN8II%3D"'}
+2025-09-18 19:10:55,844 [DEBUG] Updated body: None
+2025-09-18 19:10:55,848 [DEBUG] Starting new HTTPS connection (1): api.etrade.com:443
+2025-09-18 19:10:56,344 [DEBUG] https://api.etrade.com:443 "POST /oauth/access_token HTTP/1.1" 200 None
+2025-09-18 19:10:56,348 [DEBUG] Decoding token from response "oauth_token=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D&oauth_token_secret=m%2FasMx5IGiHlYsVDKR8UShscTyHxDJkEh9N3MQsHJEc%3D"
+2025-09-18 19:10:56,349 [DEBUG] Obtained token {'oauth_token': '2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=', 'oauth_token_secret': 'm/asMx5IGiHlYsVDKR8UShscTyHxDJkEh9N3MQsHJEc='}
+2025-09-18 19:10:56,350 [DEBUG] Updating internal client attributes from token data.
+2025-09-18 19:10:56,351 [DEBUG] Resetting verifier attribute, should not be used anymore.
+2025-09-18 19:10:56,352 [INFO] Access token obtained.
+2025-09-18 19:10:56,355 [DEBUG] Signing request <PreparedRequest [GET]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 19:10:56,357 [DEBUG] Including body in call to sign: False
+2025-09-18 19:10:56,359 [DEBUG] Collected params: [('oauth_nonce', '125552622909935055221758247856'), ('oauth_timestamp', '1758247856'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_token', '2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=')]
+2025-09-18 19:10:56,360 [DEBUG] Normalized params: oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=125552622909935055221758247856&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758247856&oauth_token=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D&oauth_version=1.0
+2025-09-18 19:10:56,363 [DEBUG] Normalized URI: https://api.etrade.com/v1/accounts/list.json
+2025-09-18 19:10:56,364 [DEBUG] Signing: signature base string: GET&https%3A%2F%2Fapi.etrade.com%2Fv1%2Faccounts%2Flist.json&oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D125552622909935055221758247856%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758247856%26oauth_token%3D2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%253D%26oauth_version%3D1.0
+2025-09-18 19:10:56,365 [DEBUG] Signature: 1xEiWInE1gA0cn86ZZYBk0WaUs8=
+2025-09-18 19:10:56,366 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 19:10:56,367 [DEBUG] Updated url: https://api.etrade.com/v1/accounts/list.json
+2025-09-18 19:10:56,368 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'application/json', b'Connection': b'keep-alive', b'Authorization': b'OAuth oauth_nonce="125552622909935055221758247856", oauth_timestamp="1758247856", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_token="2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D", oauth_signature="1xEiWInE1gA0cn86ZZYBk0WaUs8%3D"'}
+2025-09-18 19:10:56,369 [DEBUG] Updated body: None
+2025-09-18 19:10:56,371 [DEBUG] Starting new HTTPS connection (1): api.etrade.com:443
+2025-09-18 19:10:56,902 [DEBUG] https://api.etrade.com:443 "GET /v1/accounts/list.json HTTP/1.1" 200 None
+2025-09-18 19:10:56,906 [DEBUG] GET https://api.etrade.com/v1/accounts/list.json → 200
+2025-09-18 19:10:56,908 [INFO] Accounts loaded: 3
+2025-09-18 19:10:57,444 [DEBUG] Signing request <PreparedRequest [GET]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 19:10:57,451 [DEBUG] Including body in call to sign: False
+2025-09-18 19:10:57,453 [DEBUG] Collected params: [('oauth_nonce', '76865345334241258721758247857'), ('oauth_timestamp', '1758247857'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_token', '2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=')]
+2025-09-18 19:10:57,454 [DEBUG] Normalized params: oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=76865345334241258721758247857&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758247857&oauth_token=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D&oauth_version=1.0
+2025-09-18 19:10:57,455 [DEBUG] Normalized URI: https://api.etrade.com/v1/accounts/list.json
+2025-09-18 19:10:57,455 [DEBUG] Signing: signature base string: GET&https%3A%2F%2Fapi.etrade.com%2Fv1%2Faccounts%2Flist.json&oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D76865345334241258721758247857%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758247857%26oauth_token%3D2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%253D%26oauth_version%3D1.0
+2025-09-18 19:10:57,456 [DEBUG] Signature: 7sRL8zg9usaMS6kC9iODTMui8XA=
+2025-09-18 19:10:57,457 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 19:10:57,459 [DEBUG] Updated url: https://api.etrade.com/v1/accounts/list.json
+2025-09-18 19:10:57,461 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'application/json', b'Connection': b'keep-alive', b'Cookie': b'JSESSIONID=152CB3A5B374158382CA0961BD4C48E7.tomcat2', b'Authorization': b'OAuth oauth_nonce="76865345334241258721758247857", oauth_timestamp="1758247857", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_token="2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D", oauth_signature="7sRL8zg9usaMS6kC9iODTMui8XA%3D"'}
+2025-09-18 19:10:57,462 [DEBUG] Updated body: None
+2025-09-18 19:10:57,626 [DEBUG] https://api.etrade.com:443 "GET /v1/accounts/list.json HTTP/1.1" 200 None
+2025-09-18 19:10:57,632 [DEBUG] GET https://api.etrade.com/v1/accounts/list.json → 200
+2025-09-18 19:10:57,635 [INFO] Accounts loaded: 3
+2025-09-18 19:11:03,203 [DEBUG] Signing request <PreparedRequest [GET]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 19:11:03,205 [DEBUG] Including body in call to sign: False
+2025-09-18 19:11:03,207 [DEBUG] Collected params: [('status', 'OPEN'), ('count', '50'), ('oauth_nonce', '170224806166176533351758247863'), ('oauth_timestamp', '1758247863'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_token', '2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=')]
+2025-09-18 19:11:03,208 [DEBUG] Normalized params: count=50&oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=170224806166176533351758247863&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758247863&oauth_token=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D&oauth_version=1.0&status=OPEN
+2025-09-18 19:11:03,210 [DEBUG] Normalized URI: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json
+2025-09-18 19:11:03,211 [DEBUG] Signing: signature base string: GET&https%3A%2F%2Fapi.etrade.com%2Fv1%2Faccounts%2FE7YF02wAmQ-dUyv87nQNVw%2Forders.json&count%3D50%26oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D170224806166176533351758247863%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758247863%26oauth_token%3D2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%253D%26oauth_version%3D1.0%26status%3DOPEN
+2025-09-18 19:11:03,212 [DEBUG] Signature: xDHDwSWfmethq0zyUmEUiJZC29s=
+2025-09-18 19:11:03,213 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 19:11:03,214 [DEBUG] Updated url: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50
+2025-09-18 19:11:03,215 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'application/json', b'Connection': b'keep-alive', b'Cookie': b'JSESSIONID=AF50879B08FA1DAEF03B1A20E943A966.tomcat2', b'Authorization': b'OAuth oauth_nonce="170224806166176533351758247863", oauth_timestamp="1758247863", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_token="2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D", oauth_signature="xDHDwSWfmethq0zyUmEUiJZC29s%3D"'}
+2025-09-18 19:11:03,216 [DEBUG] Updated body: None
+2025-09-18 19:11:03,438 [DEBUG] https://api.etrade.com:443 "GET /v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50 HTTP/1.1" 200 None
+2025-09-18 19:11:03,727 [DEBUG] GET https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50 → 200
+2025-09-18 19:11:03,731 [DEBUG] Signing request <PreparedRequest [GET]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 19:11:03,734 [DEBUG] Including body in call to sign: False
+2025-09-18 19:11:03,735 [DEBUG] Collected params: [('status', 'OPEN'), ('count', '50'), ('marker', '1758033545641'), ('oauth_nonce', '134922393351081631851758247863'), ('oauth_timestamp', '1758247863'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_token', '2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=')]
+2025-09-18 19:11:03,736 [DEBUG] Normalized params: count=50&marker=1758033545641&oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=134922393351081631851758247863&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758247863&oauth_token=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D&oauth_version=1.0&status=OPEN
+2025-09-18 19:11:03,737 [DEBUG] Normalized URI: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json
+2025-09-18 19:11:03,738 [DEBUG] Signing: signature base string: GET&https%3A%2F%2Fapi.etrade.com%2Fv1%2Faccounts%2FE7YF02wAmQ-dUyv87nQNVw%2Forders.json&count%3D50%26marker%3D1758033545641%26oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D134922393351081631851758247863%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758247863%26oauth_token%3D2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%253D%26oauth_version%3D1.0%26status%3DOPEN
+2025-09-18 19:11:03,739 [DEBUG] Signature: +m0fAP54rFuhVWFSV/7w82uvZ8Q=
+2025-09-18 19:11:03,740 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 19:11:03,742 [DEBUG] Updated url: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&marker=1758033545641
+2025-09-18 19:11:03,742 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'application/json', b'Connection': b'keep-alive', b'Cookie': b'JSESSIONID=BCCC12F9CE8796443280223B49D8EA25.tomcat2', b'Authorization': b'OAuth oauth_nonce="134922393351081631851758247863", oauth_timestamp="1758247863", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_token="2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D", oauth_signature="%2Bm0fAP54rFuhVWFSV%2F7w82uvZ8Q%3D"'}
+2025-09-18 19:11:03,744 [DEBUG] Updated body: None
+2025-09-18 19:11:03,962 [DEBUG] https://api.etrade.com:443 "GET /v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&marker=1758033545641 HTTP/1.1" 200 None
+2025-09-18 19:11:03,966 [DEBUG] GET https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&marker=1758033545641 → 200
+2025-09-18 19:11:03,968 [DEBUG] Signing request <PreparedRequest [GET]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 19:11:03,970 [DEBUG] Including body in call to sign: False
+2025-09-18 19:11:03,972 [DEBUG] Collected params: [('status', 'OPEN'), ('count', '50'), ('marker', '1757348399587'), ('oauth_nonce', '107136316577124231441758247863'), ('oauth_timestamp', '1758247863'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_token', '2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=')]
+2025-09-18 19:11:03,973 [DEBUG] Normalized params: count=50&marker=1757348399587&oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=107136316577124231441758247863&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758247863&oauth_token=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D&oauth_version=1.0&status=OPEN
+2025-09-18 19:11:03,974 [DEBUG] Normalized URI: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json
+2025-09-18 19:11:03,975 [DEBUG] Signing: signature base string: GET&https%3A%2F%2Fapi.etrade.com%2Fv1%2Faccounts%2FE7YF02wAmQ-dUyv87nQNVw%2Forders.json&count%3D50%26marker%3D1757348399587%26oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D107136316577124231441758247863%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758247863%26oauth_token%3D2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%253D%26oauth_version%3D1.0%26status%3DOPEN
+2025-09-18 19:11:03,977 [DEBUG] Signature: Lfx2qc7mgntsKZmmrekOAWQ7+ZU=
+2025-09-18 19:11:03,978 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 19:11:03,979 [DEBUG] Updated url: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&marker=1757348399587
+2025-09-18 19:11:03,980 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'application/json', b'Connection': b'keep-alive', b'Cookie': b'JSESSIONID=EABABB100399F014CEB986C9FCED272F.tomcat2', b'Authorization': b'OAuth oauth_nonce="107136316577124231441758247863", oauth_timestamp="1758247863", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_token="2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D", oauth_signature="Lfx2qc7mgntsKZmmrekOAWQ7%2BZU%3D"'}
+2025-09-18 19:11:03,981 [DEBUG] Updated body: None
+2025-09-18 19:11:04,204 [DEBUG] https://api.etrade.com:443 "GET /v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&marker=1757348399587 HTTP/1.1" 200 None
+2025-09-18 19:11:04,211 [DEBUG] GET https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&marker=1757348399587 → 200
+2025-09-18 19:11:04,214 [DEBUG] Signing request <PreparedRequest [GET]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 19:11:04,215 [DEBUG] Including body in call to sign: False
+2025-09-18 19:11:04,220 [DEBUG] Collected params: [('status', 'OPEN'), ('count', '50'), ('marker', '1757005474889'), ('oauth_nonce', '42191174511559434421758247864'), ('oauth_timestamp', '1758247864'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_token', '2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=')]
+2025-09-18 19:11:04,221 [DEBUG] Normalized params: count=50&marker=1757005474889&oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=42191174511559434421758247864&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758247864&oauth_token=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D&oauth_version=1.0&status=OPEN
+2025-09-18 19:11:04,223 [DEBUG] Normalized URI: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json
+2025-09-18 19:11:04,224 [DEBUG] Signing: signature base string: GET&https%3A%2F%2Fapi.etrade.com%2Fv1%2Faccounts%2FE7YF02wAmQ-dUyv87nQNVw%2Forders.json&count%3D50%26marker%3D1757005474889%26oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D42191174511559434421758247864%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758247864%26oauth_token%3D2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%253D%26oauth_version%3D1.0%26status%3DOPEN
+2025-09-18 19:11:04,225 [DEBUG] Signature: 04GTSD4GfhhXTbV61zE17YfcxZk=
+2025-09-18 19:11:04,226 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 19:11:04,228 [DEBUG] Updated url: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&marker=1757005474889
+2025-09-18 19:11:04,229 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'application/json', b'Connection': b'keep-alive', b'Cookie': b'JSESSIONID=4707D2D590147FC09B2BB82008A7AA4A.tomcat2', b'Authorization': b'OAuth oauth_nonce="42191174511559434421758247864", oauth_timestamp="1758247864", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_token="2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D", oauth_signature="04GTSD4GfhhXTbV61zE17YfcxZk%3D"'}
+2025-09-18 19:11:04,230 [DEBUG] Updated body: None
+2025-09-18 19:11:04,449 [DEBUG] https://api.etrade.com:443 "GET /v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&marker=1757005474889 HTTP/1.1" 200 None
+2025-09-18 19:11:04,455 [DEBUG] GET https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&marker=1757005474889 → 200
+2025-09-18 19:11:04,456 [DEBUG] Signing request <PreparedRequest [GET]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 19:11:04,457 [DEBUG] Including body in call to sign: False
+2025-09-18 19:11:04,460 [DEBUG] Collected params: [('status', 'OPEN'), ('count', '50'), ('marker', '1755784033019'), ('oauth_nonce', '147653448546611442391758247864'), ('oauth_timestamp', '1758247864'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_token', '2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=')]
+2025-09-18 19:11:04,462 [DEBUG] Normalized params: count=50&marker=1755784033019&oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=147653448546611442391758247864&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758247864&oauth_token=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D&oauth_version=1.0&status=OPEN
+2025-09-18 19:11:04,464 [DEBUG] Normalized URI: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json
+2025-09-18 19:11:04,465 [DEBUG] Signing: signature base string: GET&https%3A%2F%2Fapi.etrade.com%2Fv1%2Faccounts%2FE7YF02wAmQ-dUyv87nQNVw%2Forders.json&count%3D50%26marker%3D1755784033019%26oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D147653448546611442391758247864%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758247864%26oauth_token%3D2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%253D%26oauth_version%3D1.0%26status%3DOPEN
+2025-09-18 19:11:04,467 [DEBUG] Signature: lRUlZJkIBqrb2+S72YCJrp6i00Q=
+2025-09-18 19:11:04,471 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 19:11:04,472 [DEBUG] Updated url: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&marker=1755784033019
+2025-09-18 19:11:04,473 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'application/json', b'Connection': b'keep-alive', b'Cookie': b'JSESSIONID=56BB7549091ED9246ECBDE5CF5F6F482.tomcat2', b'Authorization': b'OAuth oauth_nonce="147653448546611442391758247864", oauth_timestamp="1758247864", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_token="2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D", oauth_signature="lRUlZJkIBqrb2%2BS72YCJrp6i00Q%3D"'}
+2025-09-18 19:11:04,474 [DEBUG] Updated body: None
+2025-09-18 19:11:04,620 [DEBUG] https://api.etrade.com:443 "GET /v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&marker=1755784033019 HTTP/1.1" 200 None
+2025-09-18 19:11:04,626 [DEBUG] GET https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&marker=1755784033019 → 200
+2025-09-18 19:11:04,627 [INFO] Parsed 24 orders across 5 raw pages.
+2025-09-18 19:11:04,632 [INFO] Preview loaded: 24 open orders.
+2025-09-18 19:11:08,754 [DEBUG] Signing request <PreparedRequest [GET]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 19:11:08,756 [DEBUG] Including body in call to sign: False
+2025-09-18 19:11:08,757 [DEBUG] Collected params: [('status', 'OPEN'), ('count', '50'), ('symbol', 'WIT'), ('oauth_nonce', '178298430243841260921758247868'), ('oauth_timestamp', '1758247868'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_token', '2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8=')]
+2025-09-18 19:11:08,758 [DEBUG] Normalized params: count=50&oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=178298430243841260921758247868&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758247868&oauth_token=2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D&oauth_version=1.0&status=OPEN&symbol=WIT
+2025-09-18 19:11:08,759 [DEBUG] Normalized URI: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json
+2025-09-18 19:11:08,760 [DEBUG] Signing: signature base string: GET&https%3A%2F%2Fapi.etrade.com%2Fv1%2Faccounts%2FE7YF02wAmQ-dUyv87nQNVw%2Forders.json&count%3D50%26oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D178298430243841260921758247868%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758247868%26oauth_token%3D2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%253D%26oauth_version%3D1.0%26status%3DOPEN%26symbol%3DWIT
+2025-09-18 19:11:08,761 [DEBUG] Signature: WWmw7oKjyKJyR42deQGYOqWI+d0=
+2025-09-18 19:11:08,763 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 19:11:08,764 [DEBUG] Updated url: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&symbol=WIT
+2025-09-18 19:11:08,765 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'application/json', b'Connection': b'keep-alive', b'Cookie': b'JSESSIONID=4FDB7B50047D18362B60AE6AF7C57560.tomcat2', b'Authorization': b'OAuth oauth_nonce="178298430243841260921758247868", oauth_timestamp="1758247868", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_token="2OcTrKtJJ8AxT0L8YpMWgPhBhOkuU44gVZCjlvkmVb8%3D", oauth_signature="WWmw7oKjyKJyR42deQGYOqWI%2Bd0%3D"'}
+2025-09-18 19:11:08,766 [DEBUG] Updated body: None
+2025-09-18 19:11:08,941 [DEBUG] https://api.etrade.com:443 "GET /v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&symbol=WIT HTTP/1.1" 200 None
+2025-09-18 19:11:08,946 [DEBUG] GET https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&symbol=WIT → 200
+2025-09-18 19:11:08,950 [INFO] Parsed 4 orders across 1 raw pages.
+2025-09-18 19:11:08,952 [INFO] Preview loaded: 4 open orders.
+2025-09-18 19:11:20,019 [ERROR] Run-now failed
+Traceback (most recent call last):
+  File "/Users/blakekoty/Sticks & Bricks Dropbox/Blake Koty/Mac (2)/Downloads/etrade_rotator_fullbuild_nochmod_finalfix/gui.py", line 361, in _run_now
+    prev = self.api.preview_change(acct_id_key, od["orderId"], payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ETradeAPI' object has no attribute 'preview_change'
+2025-09-18 20:20:56,331 [INFO] Logger initialized.
+2025-09-18 20:20:56,376 [DEBUG] /etc/localtime found
+2025-09-18 20:20:56,379 [DEBUG] 1 found:
+ {'/etc/localtime is a symlink to': 'America/Phoenix'}
+2025-09-18 20:20:56,410 [INFO] Scheduler started
+2025-09-18 20:20:56,411 [DEBUG] Looking for jobs to run
+2025-09-18 20:20:56,412 [INFO] Added job "GuiApp._apply_schedule.<locals>.<lambda>" to job store "default"
+2025-09-18 20:20:57,455 [INFO] Added job "GuiApp._apply_schedule.<locals>.<lambda>" to job store "default"
+2025-09-18 20:20:57,458 [INFO] Added job "GuiApp._apply_schedule.<locals>.<lambda>" to job store "default"
+2025-09-18 20:20:57,461 [INFO] Scheduler updated. GTCE: 04:01:00 & 16:00:00; EXTGTC: 19:59:00
+2025-09-18 20:21:06,001 [INFO] Requesting token at https://api.etrade.com/oauth/request_token
+2025-09-18 20:21:06,003 [DEBUG] Fetching token from https://api.etrade.com/oauth/request_token using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=None, resource_owner_secret=None, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=oob, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 20:21:06,004 [DEBUG] Signing request <PreparedRequest [POST]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=None, resource_owner_secret=None, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=oob, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 20:21:06,005 [DEBUG] Including body in call to sign: False
+2025-09-18 20:21:06,006 [DEBUG] Collected params: [('oauth_nonce', '158641197300245724691758252066'), ('oauth_timestamp', '1758252066'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_callback', 'oob')]
+2025-09-18 20:21:06,007 [DEBUG] Normalized params: oauth_callback=oob&oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=158641197300245724691758252066&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758252066&oauth_version=1.0
+2025-09-18 20:21:06,008 [DEBUG] Normalized URI: https://api.etrade.com/oauth/request_token
+2025-09-18 20:21:06,009 [DEBUG] Signing: signature base string: POST&https%3A%2F%2Fapi.etrade.com%2Foauth%2Frequest_token&oauth_callback%3Doob%26oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D158641197300245724691758252066%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758252066%26oauth_version%3D1.0
+2025-09-18 20:21:06,010 [DEBUG] Signature: 5PUAIWWaE3Jf5DGc7biIHbnLVUM=
+2025-09-18 20:21:06,011 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 20:21:06,012 [DEBUG] Updated url: https://api.etrade.com/oauth/request_token
+2025-09-18 20:21:06,013 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'*/*', b'Connection': b'keep-alive', b'Content-Length': b'0', b'Authorization': b'OAuth oauth_nonce="158641197300245724691758252066", oauth_timestamp="1758252066", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_callback="oob", oauth_signature="5PUAIWWaE3Jf5DGc7biIHbnLVUM%3D"'}
+2025-09-18 20:21:06,014 [DEBUG] Updated body: None
+2025-09-18 20:21:06,042 [DEBUG] Starting new HTTPS connection (1): api.etrade.com:443
+2025-09-18 20:21:06,245 [DEBUG] https://api.etrade.com:443 "POST /oauth/request_token HTTP/1.1" 200 None
+2025-09-18 20:21:06,248 [DEBUG] Decoding token from response "oauth_token=q2gFqpUAge27mJWectgJGWxpIqAz12gPXXnxPtH16XI%3D&oauth_token_secret=W%2FpKnsF0hURJ9tInEnBgfvXNCf5rr4Gr1%2BI0dxK1V6g%3D&oauth_callback_confirmed=true"
+2025-09-18 20:21:06,249 [DEBUG] Obtained token {'oauth_token': 'q2gFqpUAge27mJWectgJGWxpIqAz12gPXXnxPtH16XI=', 'oauth_token_secret': 'W/pKnsF0hURJ9tInEnBgfvXNCf5rr4Gr1+I0dxK1V6g=', 'oauth_callback_confirmed': 'true'}
+2025-09-18 20:21:06,250 [DEBUG] Updating internal client attributes from token data.
+2025-09-18 20:21:06,254 [DEBUG] Resetting callback_uri and realm (not needed in next phase).
+2025-09-18 20:21:20,270 [INFO] Exchanging verifier for access token at https://api.etrade.com/oauth/access_token
+2025-09-18 20:21:20,274 [DEBUG] Fetching token from https://api.etrade.com/oauth/access_token using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=q2gFqpUAge27mJWectgJGWxpIqAz12gPXXnxPtH16XI=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=ORUYJ, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 20:21:20,275 [DEBUG] Signing request <PreparedRequest [POST]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=q2gFqpUAge27mJWectgJGWxpIqAz12gPXXnxPtH16XI=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=ORUYJ, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 20:21:20,276 [DEBUG] Including body in call to sign: False
+2025-09-18 20:21:20,277 [DEBUG] Collected params: [('oauth_nonce', '161008630366959825561758252080'), ('oauth_timestamp', '1758252080'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_token', 'q2gFqpUAge27mJWectgJGWxpIqAz12gPXXnxPtH16XI='), ('oauth_verifier', 'ORUYJ')]
+2025-09-18 20:21:20,278 [DEBUG] Normalized params: oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=161008630366959825561758252080&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758252080&oauth_token=q2gFqpUAge27mJWectgJGWxpIqAz12gPXXnxPtH16XI%3D&oauth_verifier=ORUYJ&oauth_version=1.0
+2025-09-18 20:21:20,279 [DEBUG] Normalized URI: https://api.etrade.com/oauth/access_token
+2025-09-18 20:21:20,280 [DEBUG] Signing: signature base string: POST&https%3A%2F%2Fapi.etrade.com%2Foauth%2Faccess_token&oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D161008630366959825561758252080%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758252080%26oauth_token%3Dq2gFqpUAge27mJWectgJGWxpIqAz12gPXXnxPtH16XI%253D%26oauth_verifier%3DORUYJ%26oauth_version%3D1.0
+2025-09-18 20:21:20,281 [DEBUG] Signature: 192HzJO5JzJTS9WqGcsl+nLntRI=
+2025-09-18 20:21:20,281 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 20:21:20,282 [DEBUG] Updated url: https://api.etrade.com/oauth/access_token
+2025-09-18 20:21:20,283 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'*/*', b'Connection': b'keep-alive', b'Content-Length': b'0', b'Authorization': b'OAuth oauth_nonce="161008630366959825561758252080", oauth_timestamp="1758252080", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_token="q2gFqpUAge27mJWectgJGWxpIqAz12gPXXnxPtH16XI%3D", oauth_verifier="ORUYJ", oauth_signature="192HzJO5JzJTS9WqGcsl%2BnLntRI%3D"'}
+2025-09-18 20:21:20,284 [DEBUG] Updated body: None
+2025-09-18 20:21:20,287 [DEBUG] Starting new HTTPS connection (1): api.etrade.com:443
+2025-09-18 20:21:20,512 [DEBUG] https://api.etrade.com:443 "POST /oauth/access_token HTTP/1.1" 200 None
+2025-09-18 20:21:20,517 [DEBUG] Decoding token from response "oauth_token=hvkNilI%2BDFXP0Py%2BhBQA4xRa5eAD%2FqxIS3Vza7%2BxJs8%3D&oauth_token_secret=4ruhLtrFJGmyF8d1SOZFAL00HKc6cyRukwxgQ7fnmAU%3D"
+2025-09-18 20:21:20,518 [DEBUG] Obtained token {'oauth_token': 'hvkNilI+DFXP0Py+hBQA4xRa5eAD/qxIS3Vza7+xJs8=', 'oauth_token_secret': '4ruhLtrFJGmyF8d1SOZFAL00HKc6cyRukwxgQ7fnmAU='}
+2025-09-18 20:21:20,519 [DEBUG] Updating internal client attributes from token data.
+2025-09-18 20:21:20,520 [DEBUG] Resetting verifier attribute, should not be used anymore.
+2025-09-18 20:21:20,521 [INFO] Access token obtained.
+2025-09-18 20:21:20,522 [DEBUG] Signing request <PreparedRequest [GET]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=hvkNilI+DFXP0Py+hBQA4xRa5eAD/qxIS3Vza7+xJs8=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 20:21:20,523 [DEBUG] Including body in call to sign: False
+2025-09-18 20:21:20,524 [DEBUG] Collected params: [('oauth_nonce', '165922905853503661831758252080'), ('oauth_timestamp', '1758252080'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_token', 'hvkNilI+DFXP0Py+hBQA4xRa5eAD/qxIS3Vza7+xJs8=')]
+2025-09-18 20:21:20,525 [DEBUG] Normalized params: oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=165922905853503661831758252080&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758252080&oauth_token=hvkNilI%2BDFXP0Py%2BhBQA4xRa5eAD%2FqxIS3Vza7%2BxJs8%3D&oauth_version=1.0
+2025-09-18 20:21:20,526 [DEBUG] Normalized URI: https://api.etrade.com/v1/accounts/list.json
+2025-09-18 20:21:20,526 [DEBUG] Signing: signature base string: GET&https%3A%2F%2Fapi.etrade.com%2Fv1%2Faccounts%2Flist.json&oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D165922905853503661831758252080%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758252080%26oauth_token%3DhvkNilI%252BDFXP0Py%252BhBQA4xRa5eAD%252FqxIS3Vza7%252BxJs8%253D%26oauth_version%3D1.0
+2025-09-18 20:21:20,527 [DEBUG] Signature: 48iwigbgUzyW8YHgJnI3hzGEd6k=
+2025-09-18 20:21:20,528 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 20:21:20,529 [DEBUG] Updated url: https://api.etrade.com/v1/accounts/list.json
+2025-09-18 20:21:20,530 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'application/json', b'Connection': b'keep-alive', b'Authorization': b'OAuth oauth_nonce="165922905853503661831758252080", oauth_timestamp="1758252080", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_token="hvkNilI%2BDFXP0Py%2BhBQA4xRa5eAD%2FqxIS3Vza7%2BxJs8%3D", oauth_signature="48iwigbgUzyW8YHgJnI3hzGEd6k%3D"'}
+2025-09-18 20:21:20,531 [DEBUG] Updated body: None
+2025-09-18 20:21:20,534 [DEBUG] Starting new HTTPS connection (1): api.etrade.com:443
+2025-09-18 20:21:20,767 [DEBUG] https://api.etrade.com:443 "GET /v1/accounts/list.json HTTP/1.1" 200 None
+2025-09-18 20:21:20,771 [DEBUG] GET https://api.etrade.com/v1/accounts/list.json → 200
+2025-09-18 20:21:20,772 [INFO] Accounts loaded: 3
+2025-09-18 20:21:31,458 [DEBUG] Signing request <PreparedRequest [GET]> using client <Client client_key=002f2c9557f4269539cb825b17a23d60, client_secret=****, resource_owner_key=hvkNilI+DFXP0Py+hBQA4xRa5eAD/qxIS3Vza7+xJs8=, resource_owner_secret=****, signature_method=HMAC-SHA1, signature_type=AUTH_HEADER, callback_uri=None, rsa_key=None, verifier=None, realm=None, encoding=utf-8, decoding=utf-8, nonce=None, timestamp=None>
+2025-09-18 20:21:31,461 [DEBUG] Including body in call to sign: False
+2025-09-18 20:21:31,463 [DEBUG] Collected params: [('status', 'OPEN'), ('count', '50'), ('symbol', 'WIT'), ('oauth_nonce', '170448627338080584331758252091'), ('oauth_timestamp', '1758252091'), ('oauth_version', '1.0'), ('oauth_signature_method', 'HMAC-SHA1'), ('oauth_consumer_key', '002f2c9557f4269539cb825b17a23d60'), ('oauth_token', 'hvkNilI+DFXP0Py+hBQA4xRa5eAD/qxIS3Vza7+xJs8=')]
+2025-09-18 20:21:31,464 [DEBUG] Normalized params: count=50&oauth_consumer_key=002f2c9557f4269539cb825b17a23d60&oauth_nonce=170448627338080584331758252091&oauth_signature_method=HMAC-SHA1&oauth_timestamp=1758252091&oauth_token=hvkNilI%2BDFXP0Py%2BhBQA4xRa5eAD%2FqxIS3Vza7%2BxJs8%3D&oauth_version=1.0&status=OPEN&symbol=WIT
+2025-09-18 20:21:31,466 [DEBUG] Normalized URI: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json
+2025-09-18 20:21:31,467 [DEBUG] Signing: signature base string: GET&https%3A%2F%2Fapi.etrade.com%2Fv1%2Faccounts%2FE7YF02wAmQ-dUyv87nQNVw%2Forders.json&count%3D50%26oauth_consumer_key%3D002f2c9557f4269539cb825b17a23d60%26oauth_nonce%3D170448627338080584331758252091%26oauth_signature_method%3DHMAC-SHA1%26oauth_timestamp%3D1758252091%26oauth_token%3DhvkNilI%252BDFXP0Py%252BhBQA4xRa5eAD%252FqxIS3Vza7%252BxJs8%253D%26oauth_version%3D1.0%26status%3DOPEN%26symbol%3DWIT
+2025-09-18 20:21:31,468 [DEBUG] Signature: k7qzTYrabudRs/vGo6WhUIsQQaA=
+2025-09-18 20:21:31,470 [DEBUG] Encoding URI, headers and body to utf-8.
+2025-09-18 20:21:31,471 [DEBUG] Updated url: https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&symbol=WIT
+2025-09-18 20:21:31,472 [DEBUG] Updated headers: {b'User-Agent': b'python-requests/2.32.3', b'Accept-Encoding': b'gzip, deflate', b'Accept': b'application/json', b'Connection': b'keep-alive', b'Cookie': b'JSESSIONID=0260C542D44EB340ACF22733408794EA.tomcat4', b'Authorization': b'OAuth oauth_nonce="170448627338080584331758252091", oauth_timestamp="1758252091", oauth_version="1.0", oauth_signature_method="HMAC-SHA1", oauth_consumer_key="002f2c9557f4269539cb825b17a23d60", oauth_token="hvkNilI%2BDFXP0Py%2BhBQA4xRa5eAD%2FqxIS3Vza7%2BxJs8%3D", oauth_signature="k7qzTYrabudRs%2FvGo6WhUIsQQaA%3D"'}
+2025-09-18 20:21:31,474 [DEBUG] Updated body: None
+2025-09-18 20:21:31,638 [DEBUG] https://api.etrade.com:443 "GET /v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&symbol=WIT HTTP/1.1" 200 None
+2025-09-18 20:21:31,642 [DEBUG] GET https://api.etrade.com/v1/accounts/E7YF02wAmQ-dUyv87nQNVw/orders.json?status=OPEN&count=50&symbol=WIT → 200
+2025-09-18 20:21:31,646 [INFO] Parsed 4 orders across 1 raw pages.
+2025-09-18 20:21:31,647 [INFO] Preview loaded: 4 open orders.
+2025-09-18 20:21:44,023 [ERROR] Run-now failed
+Traceback (most recent call last):
+  File "/Users/blakekoty/Sticks & Bricks Dropbox/Blake Koty/Mac (2)/Downloads/etrade_rotator_limit_on_order_intqty_1758251925/gui.py", line 361, in _run_now
+    prev = self.api.preview_change(acct_id_key, od["orderId"], payload)
+           ^^^^^^^^^^^^^^^^^^^^^^^
+AttributeError: 'ETradeAPI' object has no attribute 'preview_change'

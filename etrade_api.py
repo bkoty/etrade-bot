@@ -118,6 +118,76 @@ class ETradeAPI:
                                      resource_owner_secret=self.access_token_secret)
         return self.access_token, self.access_token_secret
 
+
+def get_transactions(self, account_id_key: str, start_date: str, end_date: str, symbol: str | None = None):
+    """Fetch transactions for an account between dates [start_date, end_date].
+    Dates can be 'YYYY-MM-DD' or any string; will be converted to MMDDYYYY per E*TRADE API.
+    Returns a normalized list of dicts with keys: time, symbol, side, quantity, price, proceeds/amount, fees, orderId/transactionId.
+    """
+    import datetime as _dt
+    import re as _re
+
+    def _to_mmddyyyy(s: str) -> str:
+        try:
+            if _re.match(r"\d{2}/\d{2}/\d{4}$", s):
+                m, d, y = s.split("/"); return f"{m}{d}{y}"
+            if _re.match(r"\d{4}-\d{2}-\d{2}$", s):
+                y, m, d = s.split("-"); return f"{m}{d}{y}"
+        except Exception:
+            pass
+        try:
+            dt = _dt.date.fromisoformat(s)
+            return dt.strftime("%m%d%Y")
+        except Exception:
+            return s  # best effort
+
+    base = "https://apisb.etrade.com" if self.env == SB else "https://api.etrade.com"
+    url = f"{base}/v1/accounts/{account_id_key}/transactions.json"
+    params = {
+        "startDate": _to_mmddyyyy(start_date),
+        "endDate": _to_mmddyyyy(end_date),
+        "count": 50
+    }
+    if symbol:
+        params["symbol"] = symbol
+
+    out = []
+    marker = None
+    for _ in range(10):  # safety
+        if marker:
+            params["marker"] = marker
+        resp = self.session.get(url, params=params, headers={"Accept":"application/json"})
+        if resp.status_code >= 400:
+            self.log.error("Transactions GET failed %s: %s", resp.status_code, resp.text)
+            break
+        data = resp.json() or {}
+        txns = []
+        # Expected shapes: TransactionListResponse.Transaction[] OR flattened fields
+        try:
+            txns = (data.get("TransactionListResponse", {}) or {}).get("Transaction", []) or []
+        except Exception:
+            txns = []
+        for t in txns:
+            # normalize
+            row = {
+                "time": t.get("transactionDate") or t.get("tradeDate") or t.get("date"),
+                "symbol": (t.get("symbol") or t.get("symbolDescription") or ""),
+                "side": t.get("transactionType") or t.get("type") or t.get("side"),
+                "quantity": t.get("quantity") or t.get("shares") or t.get("qty"),
+                "price": t.get("price") or t.get("averagePrice") or t.get("avgPrice"),
+                "proceeds": t.get("amount") or t.get("proceeds") or 0,
+                "fees": (t.get("fees") or 0) + (t.get("commission") or 0),
+                "orderId": t.get("orderId"),
+                "transactionId": t.get("transactionId") or t.get("id")
+            }
+            out.append(row)
+        # pagination
+        marker = (data.get("TransactionListResponse", {}) or {}).get("marker") or None
+        more = (data.get("TransactionListResponse", {}) or {}).get("moreTransactions") or False
+        if not more:
+            break
+    return out
+
     def _get(self, url: str, params: Optional[dict]=None) -> Any:
         resp = self.session.get(url, params=params, headers={"Accept":"application/json"})
         self.log.debug("GET %s → %s", resp.url, resp.status_code)
@@ -207,30 +277,21 @@ class ETradeAPI:
         self.log.info("Parsed %d orders across %d raw pages.", len(orders), raw_pages)
         return orders
 
-    
-    # --- Order change helpers ---
-    def preview_change(self, account_id_key: str, order_id: str, payload: dict) -> dict:
-        """Preview a change to an existing order. Try PUT first, then fall back to POST."""
-        url = ORDER_CHANGE_PREVIEW[self.env].format(accountIdKey=account_id_key, orderId=order_id)
-        headers = {"Accept": "application/json"}
-        resp = self.session.put(url, json=payload, headers=headers)
-        self.log.debug("PUT %s payload: %s", url, json.dumps(payload))
-        if resp.status_code in (404, 405):
-            resp = self.session.post(url, json=payload, headers=headers)
-            self.log.debug("POST %s payload: %s", url, json.dumps(payload))
-        self.log.debug("→ %s %s", resp.status_code, resp.text[:300])
-        resp.raise_for_status()
-        return resp.json()
-
-    def place_change(self, account_id_key: str, order_id: str, payload: dict) -> dict:
-        """Place a previously previewed change."""
-        url = ORDER_CHANGE_PLACE[self.env].format(accountIdKey=account_id_key, orderId=order_id)
-        headers = {"Accept": "application/json"}
+    # Stubs for rotation (payloads not changed in this snippet)
+def preview_change(self, account_id_key: str, order_id: str, payload: dict) -> dict:
+    """
+    Preview a change to an existing order.
+    Try PUT first, then fall back to POST if needed.
+    """
+    url = ORDER_CHANGE_PREVIEW[self.env].format(accountIdKey=account_id_key, orderId=order_id)
+    headers = {"Accept": "application/json"}
+    resp = self.session.put(url, json=payload, headers=headers)
+    self.log.debug("PUT %s payload: %s", url, json.dumps(payload))
+    if resp.status_code in (404, 405):
         resp = self.session.post(url, json=payload, headers=headers)
         self.log.debug("POST %s payload: %s", url, json.dumps(payload))
-        self.log.debug("→ %s %s", resp.status_code, resp.text[:300])
-        resp.raise_for_status()
-        return resp.json()
+    resp.raise_for_status()
+    return resp.json()
 
     def place_change(self, account_id_key: str, order_id: str, payload: dict) -> dict:
         url = ORDER_CHANGE_PLACE[self.env].format(accountIdKey=account_id_key, orderId=order_id)
@@ -239,3 +300,44 @@ class ETradeAPI:
         self.log.debug("→ %s %s", resp.status_code, resp.text[:300])
         resp.raise_for_status()
         return resp.json()
+
+def get_transactions(self, account_id_key: str, start_date, end_date, symbol: str | None = None, count: int = 500):
+    import datetime as _dt
+    def _coerce(d):
+        if isinstance(d, _dt.date): return d
+        s = str(d)
+        try:
+            return _dt.datetime.strptime(s, "%Y-%m-%d").date() if "-" in s else _dt.datetime.strptime(s, "%m/%d/%Y").date()
+        except Exception:
+            return _dt.date.today()
+    s = _coerce(start_date); e = _coerce(end_date)
+
+    base = "https://apisb.etrade.com" if self.env == SB else "https://api.etrade.com"
+    url = f"{base}/v1/accounts/{account_id_key}/transactions"
+    headers = {"Accept":"application/json"}
+    params = {"startDate": s.strftime("%m%d%Y"), "endDate": e.strftime("%m%d%Y"), "count": int(count)}
+    if symbol: params["symbol"] = symbol
+
+    # Try with dates; if strict 400, retry with {}, then {"count": count}
+    r = self.session.get(url, params=params, headers=headers)
+    if r.status_code == 400:
+        r = self.session.get(url, headers=headers)
+        if r.status_code == 400:
+            r = self.session.get(url, params={"count": int(count)}, headers=headers)
+    r.raise_for_status()
+    data = r.json() or {}
+    txns = (data.get("TransactionListResponse") or {}).get("Transaction") or data.get("Transaction") or []
+    out = []
+    for t in txns:
+        out.append({
+            "time": t.get("transactionDate") or t.get("tradeDate") or t.get("date"),
+            "symbol": t.get("symbol") or t.get("productSymbol") or t.get("securitySymbol") or t.get("symbolDescription"),
+            "side": t.get("transactionType") or t.get("type") or t.get("side"),
+            "quantity": t.get("quantity") or t.get("shares") or t.get("qty"),
+            "price": t.get("price") or t.get("averagePrice") or t.get("avgPrice"),
+            "proceeds": t.get("amount") or t.get("proceeds") or 0,
+            "fees": (t.get("fees") or 0) + (t.get("commission") or 0),
+            "orderId": t.get("orderId"),
+            "transactionId": t.get("transactionId") or t.get("id")
+        })
+    return out
